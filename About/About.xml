@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Jecs Inventory and Carrying Capacity Settings</name>
+  <name>Jecs Capacity Settings</name>
   <packageId>jecrell.carryingcapacitybooster</packageId>
   <author>Jecrell</author>
   <url>https://discord.gg/AaVFA7V</url>
@@ -21,7 +21,23 @@
   </loadAfter>
   <description>1.0.0.0 (10-31-2022)
 
-[h1]A simple mod to boost carrying capacity based on player settings up to 10 times normal.[/h1]
+[h1]A simple mod to boost carrying capacity based on player settings.[/h1]
+
+Tired of not having enough inventory capacity or characters unable to carry everything you need?
+This mod will allow you to modify the carrying capacity and inventory capacity of pawns in RimWorld.
+
+Settings are available in the Mod Settings menu under Jec's Inventory and Carrying Capacity.
+Multipliers in the settings menu will allow players to increase inventory or carrying capacity independently up to 10x normal.
+Body Size related modifiers can also be disabled from the carrying capacity / inventory capacity calculations.
+
+Thank you to my Patrons for supporting me in my efforts. Without you, none of this would be possible.
+
+========================
+Changelog
+========================
+1.0.0.0 (10-31-2022)
+========================
+Initial release for Jecs Carrying Capacity. Now you can increase your pawns default inventory sizes and abilities to carry larger stacks. Use slider settings and decide what works best for your game. Supports up to 10x RimWorld vanilla settings
 
 </description>
 </ModMetaData>

@@ -21,7 +21,7 @@ public class ModMain : Mod
 
     public override string SettingsCategory()
     {
-        return "Jec's Inventory and Carrying Capacity Settings";
+        return "Jec's Capacity Settings";
     }
 
     public override void DoSettingsWindowContents(Rect inRect)
