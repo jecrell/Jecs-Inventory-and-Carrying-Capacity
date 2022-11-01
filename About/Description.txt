@@ -1,0 +1,8 @@
+[h1]A simple mod to boost carrying capacity based on player settings.[/h1]
+
+Tired of not having enough inventory capacity or characters unable to carry everything you need?
+This mod will allow you to modify the carrying capacity and inventory capacity of pawns in RimWorld.
+
+Settings are available in the Mod Settings menu under Jec's Inventory and Carrying Capacity.
+Multipliers in the settings menu will allow players to increase inventory or carrying capacity independently up to 10x normal.
+Body Size related modifiers can also be disabled from the carrying capacity / inventory capacity calculations.

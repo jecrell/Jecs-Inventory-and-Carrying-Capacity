@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <JCC_Welcome>This mod settings window will change both inventory capacity and carrying capacity settings for both existing and new saves by modifying the vanilla formulas. </JCC_Welcome>
+  <JCC_HeaderInventoryMass>Inventory Capacity (Mass)</JCC_HeaderInventoryMass>
+  <JCC_HeaderCarryingCapacity>Carrying Capacity (Stat)</JCC_HeaderCarryingCapacity>
+  <JCC_AllowBodySizeMultiplier>Use body size multipliers?</JCC_AllowBodySizeMultiplier>
+  <JCC_AllowBodySizeMultiplierTooltip>By default, this is left as true.</JCC_AllowBodySizeMultiplierTooltip>
+  <JCC_CarryCapacityMultiplier>Carry Capacity Multiplier</JCC_CarryCapacityMultiplier>
+  <JCC_InventoryCapacityMultiplier>Inventory Capacity Multiplier</JCC_InventoryCapacityMultiplier>
+  <JCC_CarryCapacityMultiplierTooltip>By default, this is 1x. Changing this will multiply the value by the number selected</JCC_CarryCapacityMultiplierTooltip>
+
+  <JCC_StatInfoMultiplier>Jec's Inventory and Carrying Capacity Settings multiplier: {0}.</JCC_StatInfoMultiplier>
+
+  <JCC_StatInfoBodySizeMultiplierDisabled>The multiplier for body size for carrying capacity has been disabled in Jec's Inventory and Carrying Capacity Settings mod.</JCC_StatInfoBodySizeMultiplierDisabled>
+
+</LanguageData>

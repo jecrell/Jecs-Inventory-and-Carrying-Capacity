@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Jecs Inventory and Carrying Capacity Settings</name>
+  <packageId>jecrell.carryingcapacitybooster</packageId>
+  <author>Jecrell</author>
+  <url>https://discord.gg/AaVFA7V</url>
+  <supportedVersions>
+    <li>1.3</li>
+    <li>1.4</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <description>1.0.0.0 (10-31-2022)
+
+[h1]A simple mod to boost carrying capacity based on player settings up to 10 times normal.[/h1]
+
+</description>
+</ModMetaData>
