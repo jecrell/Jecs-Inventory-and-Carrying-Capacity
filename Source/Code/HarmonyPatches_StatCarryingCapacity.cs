@@ -26,10 +26,9 @@ static partial class HarmonyPatches
 
     //Apply the multiplier mod setting for carrying capacity
     //StatWorker
-    public static void GetValue_PostFix(StatWorker __instance, StatRequest req, bool applyPostProcess, ref float __result)
+    public static void GetValue_PostFix(StatDef ___stat, ref float __result)
     {
-        StatDef statDef = (StatDef)AccessTools.Field(typeof(StatWorker), "stat").GetValue(__instance);
-        if (statDef == StatDefOf.CarryingCapacity)
+        if (___stat == StatDefOf.CarryingCapacity)
             __result *= ModInfo.carryingCapacity_Mulitplier;
     }
 
