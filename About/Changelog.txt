@@ -1,3 +1,11 @@
+1.0.0.2 (11-08-2022)
+========================
+Added tooltips to show calculations and tooltips for the body size multiplier
+
+1.0.0.1 (11-06-2022)
+========================
+Efficiency fix from AmCh that improves performance of the carrying capacity mod
+
 1.0.0.0 (10-31-2022)
 ========================
 Initial release for Jecs Carrying Capacity. Now you can increase your pawns default inventory sizes and abilities to carry larger stacks. Use slider settings and decide what works best for your game. Supports up to 10x RimWorld vanilla settings

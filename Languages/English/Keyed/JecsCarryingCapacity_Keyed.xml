@@ -5,9 +5,22 @@
   <JCC_HeaderCarryingCapacity>Carrying Capacity (Stat)</JCC_HeaderCarryingCapacity>
   <JCC_AllowBodySizeMultiplier>Use body size multipliers?</JCC_AllowBodySizeMultiplier>
   <JCC_AllowBodySizeMultiplierTooltip>By default, this is left as true.</JCC_AllowBodySizeMultiplierTooltip>
+
+  <JCC_BodySize> Body Size Multiplier: 1x (Adult human size) x</JCC_BodySize>
+
   <JCC_CarryCapacityMultiplier>Carry Capacity Multiplier</JCC_CarryCapacityMultiplier>
   <JCC_InventoryCapacityMultiplier>Inventory Capacity Multiplier</JCC_InventoryCapacityMultiplier>
-  <JCC_CarryCapacityMultiplierTooltip>By default, this is 1x. Changing this will multiply the value by the number selected</JCC_CarryCapacityMultiplierTooltip>
+
+  <JCC_AllowBodySizeMultiplierICDesc>When checked, include the body size factor in the calculation for inventory capacity</JCC_AllowBodySizeMultiplierICDesc>
+
+
+  <JCC_InventoryCapacityMultiplierTooltip>The amount of stuff a creature can carry in its inventory, also known as inventory mass or inventory capacity.\n\nBy default, this is 1x. Changing this will multiply the value by the number selected for all pawns capable of carrying inventories.\n\nExample default pawn inventory mass: {0}.\nNew inventory mass: {3} (Base value: {0} x{1} Jecs Multiplier: {2})</JCC_InventoryCapacityMultiplierTooltip>
+
+
+  <JCC_AllowBodySizeMultiplierCCDesc>When checked, include the body size factor in the calculation for carrying capacity</JCC_AllowBodySizeMultiplierCCDesc>
+
+  <JCC_CarryCapacityMultiplierTooltip>The amount of stuff a creature can carry in its hands, mouth, or other manipulators.\n\nBy default, this is 1x. Changing this will multiply the value by the number selected for all pawns capable of carrying items.\n\nExample default pawn carrying capacity: {0} items hauled at once.\nNew carrying capacity: {3} (Base value: {0} x{1} Jecs Multiplier: {2}) </JCC_CarryCapacityMultiplierTooltip>
+
 
   <JCC_StatInfoMultiplier>Jec's Inventory and Carrying Capacity Settings multiplier: {0}.</JCC_StatInfoMultiplier>
 

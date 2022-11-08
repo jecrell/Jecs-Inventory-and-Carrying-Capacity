@@ -19,7 +19,7 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>1.0.0.0 (10-31-2022)
+  <description>1.0.0.2 (11-08-2022)
 
 [h1]A simple mod to boost carrying capacity based on player settings.[/h1]
 
@@ -32,9 +32,20 @@ Body Size related modifiers can also be disabled from the carrying capacity / in
 
 Thank you to my Patrons for supporting me in my efforts. Without you, none of this would be possible.
 
+These are the most excellent rim dwellers who support me: 
+Darcilyn Lynds (darci.andel), Luke Salinas, RainerWingel , Noisy Koi, Lea Stannard, David Silberstein, Matt Harris, Kiya Nicoll, Paul Fenwick, Genaeve , Populous25 , David Turner, TinyATuin, Michael Cailler, Jimes Tooper, Sharp Spook, Don Homer, roxxploxx , Alex Mederer, Dan Jones, Michael Whitehead, iknowdude00, Kaz, Alexander , Ken Birdwell, Darcilyn Lynds (darci.andel), Luke Salinas, RainerWingel , Noisy Koi, Lea Stannard, David Silberstein, Matt Harris, Kiya Nicoll, Paul Fenwick, Genaeve , Populous25 , David Turner, TinyATuin, Michael Cailler, Jimes Tooper, Sharp Spook, Don Homer, roxxploxx , Alex Mederer, Dan Jones, Michael Whitehead, iknowdude00, Kaz, Alexander , Ken Birdwell
+
 ========================
 Changelog
 ========================
+1.0.0.2 (11-08-2022)
+========================
+Added tooltips to show calculations and tooltips for the body size multiplier
+
+1.0.0.1 (11-06-2022)
+========================
+Efficiency fix from AmCh that improves performance of the carrying capacity mod
+
 1.0.0.0 (10-31-2022)
 ========================
 Initial release for Jecs Carrying Capacity. Now you can increase your pawns default inventory sizes and abilities to carry larger stacks. Use slider settings and decide what works best for your game. Supports up to 10x RimWorld vanilla settings

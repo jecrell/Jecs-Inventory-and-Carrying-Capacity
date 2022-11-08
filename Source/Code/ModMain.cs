@@ -1,4 +1,5 @@
 using System;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -8,15 +9,15 @@ public class ModMain : Mod
 {
     Settings settings;
         
-    public ModMain(ModContentPack content) : base(content)
+    public ModMain(ModContentPack content) : base(content: content)
     {
-        this.settings = GetSettings<Settings>();
+        settings = GetSettings<Settings>();
         
-        ModInfo.inventoryMass_UseBodySize = this.settings.inventoryMass_UseBodySize;
-        ModInfo.inventoryMass_Mulitplier = this.settings.inventoryMass_Mulitplier;
+        ModInfo.inventoryMass_UseBodySize = settings.inventoryMass_UseBodySize;
+        ModInfo.inventoryMass_Mulitplier = settings.inventoryMass_Mulitplier;
         
-        ModInfo.carryingCapacity_UseBodySize = this.settings.carryingCapacity_UseBodySize;
-        ModInfo.carryingCapacity_Mulitplier = this.settings.carryingCapacity_Mulitplier;
+        ModInfo.carryingCapacity_UseBodySize = settings.carryingCapacity_UseBodySize;
+        ModInfo.carryingCapacity_Mulitplier = settings.carryingCapacity_Mulitplier;
     }
 
     public override string SettingsCategory()
@@ -34,9 +35,17 @@ public class ModMain : Mod
 
                 
         // Welcome message
-        var rWelcome = new Rect(inRect.x, inRect.y, fColWidth * colCount, (fRowHeight *2));
+        var rWelcome = new Rect(
+            x: inRect.x, 
+            y: inRect.y, 
+            width: fColWidth * colCount, 
+            height: (fRowHeight *2)
+            );
         Text.Anchor = TextAnchor.UpperLeft;
-        Widgets.Label(rWelcome, "JCC_Welcome".Translate());
+        Widgets.Label(
+            rect: rWelcome, 
+            label: "JCC_Welcome".Translate()
+            );
         rowCount++;
         
         /////////////////////////////////////////////////////
@@ -45,34 +54,82 @@ public class ModMain : Mod
         ///
         ////////////////////////////////////////////////////
         
+        
         // Header for Inventory Capacity
-        var rHeaderInventoryMass = new Rect(inRect.x, inRect.y + fRowHeight * rowCount, fColWidth * colCount, fRowHeight);
+        var rHeaderInventoryMass = new Rect(
+            x: inRect.x, 
+            y: inRect.y + fRowHeight * rowCount, 
+            width: fColWidth * colCount, 
+            height: fRowHeight
+            );
         Text.Font = GameFont.Medium;
         Text.Anchor = TextAnchor.UpperLeft;
-        Widgets.Label(rHeaderInventoryMass, "JCC_HeaderInventoryMass".Translate());
+        Widgets.Label(
+            rect: rHeaderInventoryMass, 
+            label: "JCC_HeaderInventoryMass".Translate()
+            );
         Text.Font = GameFont.Small;
         rowCount++;
 
+        
         // Body Size toggle box
-        var rInventoryMassBodySizeToggle = new Rect(inRect.x, inRect.y + fRowHeight * rowCount, fColWidth * colCount,
-            fRowHeight);
-        var rInventoryMassBodySizeToggleLeft = rInventoryMassBodySizeToggle.LeftPart(0.666f).Rounded();
-        var rInventoryMassBodySizeToggleRight = rInventoryMassBodySizeToggle.RightPart(0.333f).Rounded();
+        var rInventoryMassBodySizeToggle = new Rect(
+            x: inRect.x, 
+            y: inRect.y + fRowHeight * rowCount, 
+            width: fColWidth * colCount,
+            height: fRowHeight
+            );
+        var rInventoryMassBodySizeToggleLeft = rInventoryMassBodySizeToggle.LeftPart(pct: 0.666f).Rounded();
+        var rInventoryMassBodySizeToggleRight = rInventoryMassBodySizeToggle.RightPart(pct: 0.333f).Rounded();
         Text.Anchor = TextAnchor.UpperLeft;
-        Widgets.Label(rInventoryMassBodySizeToggleLeft, "JCC_AllowBodySizeMultiplier".Translate());
+        Widgets.Label(
+            rect: rInventoryMassBodySizeToggleLeft,
+            label: "JCC_AllowBodySizeMultiplier".Translate()
+            );
         Text.Anchor = TextAnchor.UpperLeft;
-        Widgets.CheckboxLabeled(rInventoryMassBodySizeToggleRight, "", ref this.settings.inventoryMass_UseBodySize);
-        TooltipHandler.TipRegion(rInventoryMassBodySizeToggle, () => "".Translate(), 312356);
+        Widgets.CheckboxLabeled(
+            rect: rInventoryMassBodySizeToggleRight, 
+            label: "", 
+            checkOn: ref settings.inventoryMass_UseBodySize
+            );
+        TooltipHandler.TipRegion(
+            rect: rInventoryMassBodySizeToggle,
+            textGetter: () => "JCC_AllowBodySizeMultiplierICDesc".Translate(),
+            uniqueId: 312356
+            );
         rowCount++;
 
+        
         // Inventory mass/capacity multiplier
-        var rCarryingCapacityMultiplier1 = new Rect(inRect.x, inRect.y + fRowHeight * rowCount, fColWidth * colCount,
-            fRowHeight);
-        Widgets.Label(rCarryingCapacityMultiplier1.TopHalf(), "JCC_InventoryCapacityMultiplier".Translate());
-        this.settings.inventoryMass_Mulitplier = Widgets.HorizontalSlider(rCarryingCapacityMultiplier1.BottomHalf(),
-            this.settings.inventoryMass_Mulitplier, 0.0f, 10f, false, (this.settings.inventoryMass_Mulitplier.ToString()) + "x", null, null, 0.25f);
-        TooltipHandler.TipRegion(rCarryingCapacityMultiplier1, () => "JCC_CarryCapacityMultiplierTooltip".Translate(),
-            312357);
+        var rCarryingCapacityMultiplier1 = new Rect(
+            x: inRect.x, 
+            y: inRect.y + fRowHeight * rowCount, 
+            width: fColWidth * colCount,
+            height: fRowHeight
+            );
+        Widgets.Label(
+            rect: rCarryingCapacityMultiplier1.TopHalf(), 
+            label: "JCC_InventoryCapacityMultiplier".Translate()
+            );
+        settings.inventoryMass_Mulitplier = Widgets.HorizontalSlider(
+            rect: rCarryingCapacityMultiplier1.BottomHalf(),
+            value: settings.inventoryMass_Mulitplier, 
+            leftValue: 0.0f, 
+            rightValue: 10f, 
+            middleAlignment: false,
+            label: settings.inventoryMass_Mulitplier + "x", 
+            leftAlignedLabel: null, 
+            rightAlignedLabel: null, 
+            roundTo: 0.25f);
+        TooltipHandler.TipRegion(
+            rect: rCarryingCapacityMultiplier1,
+            textGetter: () => "JCC_InventoryCapacityMultiplierTooltip".Translate(
+                35f,
+                settings.inventoryMass_UseBodySize ? "JCC_BodySize".Translate() : "",
+                settings.inventoryMass_Mulitplier.ToString("0.00"),
+                35f * settings.inventoryMass_Mulitplier),
+            uniqueId: 312357
+            );
         rowCount++;
         rowCount++;
         
@@ -85,49 +142,95 @@ public class ModMain : Mod
         
                 
         // Header for Inventory Capacity
-        var rHeaderCarryingCapacity = new Rect(inRect.x, inRect.y + fRowHeight * rowCount, fColWidth * colCount, fRowHeight);
+        var rHeaderCarryingCapacity = new Rect(
+            x: inRect.x, 
+            y: inRect.y + fRowHeight * rowCount, 
+            width: fColWidth * colCount, 
+            height: fRowHeight
+            );
         Text.Font = GameFont.Medium;
         Text.Anchor = TextAnchor.UpperLeft;
-        Widgets.Label(rHeaderCarryingCapacity, "JCC_HeaderCarryingCapacity".Translate());
+        Widgets.Label(
+            rect: rHeaderCarryingCapacity, 
+            label: "JCC_HeaderCarryingCapacity".Translate()
+            );
         Text.Font = GameFont.Small;
         rowCount++;
         
+        
         // Body Size toggle box
-        var rBodySizeToggle = new Rect(inRect.x, inRect.y + fRowHeight * rowCount, fColWidth * colCount,
-            fRowHeight);
-        var rBodySizeToggleLeft = rBodySizeToggle.LeftPart(0.666f).Rounded();
-        var rBodySizeToggleRight = rBodySizeToggle.RightPart(0.333f).Rounded();
+        var rBodySizeToggle = new Rect(
+            x: inRect.x, 
+            y: inRect.y + fRowHeight * rowCount, 
+            width: fColWidth * colCount,
+            height: fRowHeight
+            );
+        var rBodySizeToggleLeft = rBodySizeToggle.LeftPart(pct: 0.666f).Rounded();
+        var rBodySizeToggleRight = rBodySizeToggle.RightPart(pct: 0.333f).Rounded();
         Text.Anchor = TextAnchor.UpperLeft;
-        Widgets.Label(rBodySizeToggleLeft, "JCC_AllowBodySizeMultiplier".Translate());
+        Widgets.Label(
+            rect: rBodySizeToggleLeft, 
+            label: "JCC_AllowBodySizeMultiplier".Translate()
+            );
         Text.Anchor = TextAnchor.UpperLeft;
-        Widgets.CheckboxLabeled(rBodySizeToggleRight, "", ref this.settings.carryingCapacity_UseBodySize);
-        TooltipHandler.TipRegion(rBodySizeToggle, () => "".Translate(), 312358);
+        Widgets.CheckboxLabeled(
+            rect: rBodySizeToggleRight,
+            label: "",
+            checkOn: ref settings.carryingCapacity_UseBodySize
+            );
+        TooltipHandler.TipRegion(
+            rect: rBodySizeToggle,
+            textGetter: () => "JCC_AllowBodySizeMultiplierCCDesc".Translate(),
+            uniqueId: 312358
+            );
         rowCount++;
 
+        
         // Carrying capacity multiplier
-        var rCarryingCapacityMultiplier = new Rect(inRect.x, inRect.y + fRowHeight * rowCount, fColWidth * colCount,
-            fRowHeight);
-        Widgets.Label(rCarryingCapacityMultiplier.TopHalf(), "JCC_CarryCapacityMultiplier".Translate());
-        this.settings.carryingCapacity_Mulitplier = Widgets.HorizontalSlider(rCarryingCapacityMultiplier.BottomHalf(),
-            this.settings.carryingCapacity_Mulitplier, 0.0f, 10f, false, (this.settings.carryingCapacity_Mulitplier.ToString()) + "x", null, null, 0.25f);
-        TooltipHandler.TipRegion(rCarryingCapacityMultiplier, () => "JCC_CarryCapacityMultiplierTooltip".Translate(),
-            312359);
-        rowCount++;
-        rowCount++;
+        var rCarryingCapacityMultiplier = new Rect(
+            x: inRect.x, 
+            y: inRect.y + fRowHeight * rowCount, 
+            width: fColWidth * colCount,
+            height: fRowHeight
+            );
+        Widgets.Label(
+            rect: rCarryingCapacityMultiplier.TopHalf(),
+            label: "JCC_CarryCapacityMultiplier".Translate()
+            );
+        settings.carryingCapacity_Mulitplier = Widgets.HorizontalSlider(
+            rect: rCarryingCapacityMultiplier.BottomHalf(),
+            value: settings.carryingCapacity_Mulitplier,
+            leftValue: 0.0f,
+            rightValue: 10f,
+            middleAlignment: false,
+            label: settings.carryingCapacity_Mulitplier + "x", 
+            leftAlignedLabel: null,
+            rightAlignedLabel: null, 
+            roundTo: 0.25f
+            );
+        TooltipHandler.TipRegion(
+            rect: rCarryingCapacityMultiplier,
+            textGetter: () => "JCC_CarryCapacityMultiplierTooltip".Translate(
+                StatDefOf.CarryingCapacity.defaultBaseValue,
+                settings.carryingCapacity_UseBodySize ? "JCC_BodySize".Translate() : "",
+                settings.carryingCapacity_Mulitplier.ToString("0.00"),
+                StatDefOf.CarryingCapacity.defaultBaseValue * settings.carryingCapacity_Mulitplier
+            ),
+            uniqueId: 312359
+            );
 
-
-        this.WriteSettings();
+        WriteSettings();
     }
 
     public override void WriteSettings()
     {
         base.WriteSettings();
         
-        ModInfo.inventoryMass_UseBodySize = this.settings.inventoryMass_UseBodySize;
-        ModInfo.inventoryMass_Mulitplier = this.settings.inventoryMass_Mulitplier;
+        ModInfo.inventoryMass_UseBodySize = settings.inventoryMass_UseBodySize;
+        ModInfo.inventoryMass_Mulitplier = settings.inventoryMass_Mulitplier;
         
-        ModInfo.carryingCapacity_UseBodySize = this.settings.carryingCapacity_UseBodySize;
-        ModInfo.carryingCapacity_Mulitplier = this.settings.carryingCapacity_Mulitplier;
+        ModInfo.carryingCapacity_UseBodySize = settings.carryingCapacity_UseBodySize;
+        ModInfo.carryingCapacity_Mulitplier = settings.carryingCapacity_Mulitplier;
     }
 
     public class Settings : ModSettings
@@ -143,11 +246,11 @@ public class ModMain : Mod
         {
             base.ExposeData();
             
-            Scribe_Values.Look(ref inventoryMass_Mulitplier, "inventoryMass_Mulitplier");
-            Scribe_Values.Look(ref inventoryMass_UseBodySize, "inventoryMass_UseBodySize");
+            Scribe_Values.Look(value: ref inventoryMass_Mulitplier, label: "inventoryMass_Mulitplier");
+            Scribe_Values.Look(value: ref inventoryMass_UseBodySize, label: "inventoryMass_UseBodySize");
             
-            Scribe_Values.Look(ref carryingCapacity_Mulitplier, "carryingCapacity_Mulitplier");
-            Scribe_Values.Look(ref carryingCapacity_UseBodySize, "carryingCapacity_UseBodySize");
+            Scribe_Values.Look(value: ref carryingCapacity_Mulitplier, label: "carryingCapacity_Mulitplier");
+            Scribe_Values.Look(value: ref carryingCapacity_UseBodySize, label: "carryingCapacity_UseBodySize");
         }
     }
     
